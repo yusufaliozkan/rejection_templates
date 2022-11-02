@@ -60,7 +60,7 @@ with col1:
 
 with col2:
     with st.expander('List of rejection reasons'):
-        st.dataframe(df_new['rejection reason'], expanded=False)
+        st.dataframe(df_new['rejection reason'])
 
 
 
