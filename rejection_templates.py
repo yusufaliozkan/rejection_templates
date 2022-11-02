@@ -22,29 +22,24 @@ df_new = df.sort_values(by='rejection reason')
 
 st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
 clist = df_new['rejection reason'].unique()
+reason = st.selectbox("Select a reason:",clist)
+df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
+text_to_be_copied = df_reason
+copy_dict = {"content": text_to_be_copied}
 
 
-col1, col2 = st.columns(2)
+copy_button = Button(label="Copy the HTML template to clipboard")
+copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    navigator.clipboard.writeText(content);
+    """))
 
-with col1:
-    reason = st.selectbox("Select a reason:",clist)
-    df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
-    text_to_be_copied = df_reason
-    copy_dict = {"content": text_to_be_copied}
-
-with col2:
-    copy_button = Button(label="Copy the HTML template to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-        navigator.clipboard.writeText(content);
-        """))
-
-    no_event = streamlit_bokeh_events(
-        copy_button,
-        events="GET_TEXT",
-        key="get_text",
-        refresh_on_update=True,
-        override_height=75,
-        debounce_time=0)
+no_event = streamlit_bokeh_events(
+    copy_button,
+    events="GET_TEXT",
+    key="get_text",
+    refresh_on_update=True,
+    override_height=75,
+    debounce_time=0)
 
 
 
