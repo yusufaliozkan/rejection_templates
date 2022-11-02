@@ -21,8 +21,7 @@ df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
 st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
-
-col1, col2 = st.columns(2)
+clist = df_new['rejection reason'].unique()col1, col2 = st.columns(2)
 
 with col1:
     clist = df_new['rejection reason'].unique()
