@@ -26,7 +26,6 @@ clist = df_new['rejection reason'].unique()
 col1, col2 = st.columns(2)
 
 with col1:
-    clist = df_new['rejection reason'].unique()
     reason = st.selectbox("Select a reason:",clist)
 
     df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
