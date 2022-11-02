@@ -47,7 +47,6 @@ with col1:
 col1, col2 = st.columns(2)
 
 with col1:
-    with st.expander("Frequently used copyright statements"):
         with st.expander('Wrong version - post-April 2016'):
             st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
 
