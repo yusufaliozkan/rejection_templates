@@ -46,7 +46,8 @@ with col1:
 
 with col2:
     with st.expander("Frequently used copyright statements"):
-
+        with st.expander('Template view (' + reason+')', expanded=False):
+            components.html(df_reason, height=1500)
         with st.expander('Template in HTML format (' + reason+')'):
             st.code(df_reason)
 
