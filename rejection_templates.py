@@ -126,7 +126,7 @@ with st.expander("Frequently used copyright statements"):
             debounce_time=0)
 
 st.header('Rejection reasons')
-df_new['rejection reason']
+st.dataframe(df_new['rejection reason'])
 
 with st.expander("About the dashboard"):
     st.write('This app was launched in October 2022.')
