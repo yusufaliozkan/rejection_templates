@@ -22,7 +22,7 @@ df_new = df.sort_values(by='rejection reason')
 
 st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
 clist = df_new['rejection reason'].unique()
-reason = st.selectbox("Select a reason:",clist, label_visibility="collapsed")
+reason = st.selectbox("Select a reason:",clist, label_visibility="visible")
 df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
 text_to_be_copied = df_reason
 copy_dict = {"content": text_to_be_copied}
