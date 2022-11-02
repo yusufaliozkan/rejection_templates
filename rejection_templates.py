@@ -19,7 +19,6 @@ column_names = ['rejection reason', 'rejection template']
 df = pd.read_csv('templates.csv', names=column_names)
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
-df_new
 
 st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
 clist = df_new['rejection reason'].unique()
@@ -125,6 +124,9 @@ with st.expander("Frequently used copyright statements"):
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
+
+st.header('Rejection reasons')
+df_new['rejection reason']
 
 with st.expander("About the dashboard"):
     st.write('This app was launched in October 2022.')
