@@ -63,6 +63,8 @@ with col1:
         st.code(df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0])
     with st.expander('Duplicate record'):
         st.code(df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0])
+    with st.expander('Blank template'):
+        st.code(df.loc[df_new['rejection reason']=='Blank template', 'rejection template'].values[0])
 
 
 with col2:
