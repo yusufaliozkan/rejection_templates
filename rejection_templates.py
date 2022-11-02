@@ -45,7 +45,7 @@ with col1:
         debounce_time=0)
 
 with col2:
-    with st.expander('Template view (' + reason+')'):
+    with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
     with st.expander('Template in HTML format (' + reason+')'):
         st.code(df_reason)
