@@ -51,7 +51,7 @@ with col2:
         st.code(df_reason)
 
 
-col1, col2 = st.columns(2,1)
+col1, col2 = st.columns([2,1])
 
 with col1:
     st.subheader('Frequently used templates')
