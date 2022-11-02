@@ -43,7 +43,7 @@ no_event = streamlit_bokeh_events(
 
 
 
-col1, col2 = st.columns([2,1,2])
+col1, col2 = st.columns([1,2])
 
 with col1:
     with st.expander('Template in HTML format (' + reason+')'):
