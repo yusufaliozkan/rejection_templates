@@ -63,8 +63,8 @@ with col1:
         st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
     with st.expander('Free to access link'):
         st.code(df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0])
-    with st.expander('Free to access link'):
-        st.code(df.loc[df_new['rejection reason']=='Free to access link', 'Duplicate record'].values[0])
+    # with st.expander('Free to access link'):
+    #     st.code(df.loc[df_new['rejection reason']=='Free to access link', 'Duplicate record'].values[0])
 
 
 with col2:
