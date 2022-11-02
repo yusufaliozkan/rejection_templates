@@ -22,7 +22,7 @@ df_new = df.sort_values(by='rejection reason')
 
 st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1,2])
 with col1:
     clist = df_new['rejection reason'].unique()
     reason = st.selectbox("Select a reason:",clist)
