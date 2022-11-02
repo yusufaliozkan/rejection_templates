@@ -125,6 +125,5 @@ with st.expander("Frequently used copyright statements"):
                 debounce_time=0)
 
 
-with col2:
-    with st.expander('List of rejection reasons'):
-        st.dataframe(df_new['rejection reason'])
+with st.expander('List of rejection reasons'):
+    st.dataframe(df_new['rejection reason'])
