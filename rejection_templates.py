@@ -59,8 +59,8 @@ with col1:
         st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
 
 with col2:
-    with st.expander('List of rejection reasons'):
-        st.dataframe(df_new['rejection reason'])
+    st.subheader('List of rejection reasons')
+    st.dataframe(df_new['rejection reason'])
 
 
 
