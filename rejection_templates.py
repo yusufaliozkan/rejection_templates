@@ -50,7 +50,7 @@ with col2:
     with st.expander('Template in HTML format (' + reason+')'):
         st.code(df_reason)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2,1)
 
 with col1:
     with st.expander("Frequently used copyright statements"):
