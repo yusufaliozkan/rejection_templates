@@ -53,7 +53,7 @@ with col2:
     with st.expander('Template view (' + reason+')'):
         components.html(df_reason, height=1500)
 
-col1, col2 =st.columns([2,1])
+col1, col2 =st.columns([3,1])
 with col1:
     with st.expander("Frequently used copyright statements"):
         col1, col2 = st.columns(2)
