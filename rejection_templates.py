@@ -53,77 +53,78 @@ with col2:
     with st.expander('Template view (' + reason+')'):
         components.html(df_reason, height=1500)
 
+col1, col2 =st.columns([2,1])
+with col1:
+    with st.expander("Frequently used copyright statements"):
+        col1, col2 = st.columns(2)
+        with col1:
+            text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
+            copy_dict = {"content": text_to_be_copied}
 
-with st.expander("Frequently used copyright statements"):
-    col1, col2 = st.columns(2)
-    with col1:
-        text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+            copy_button = Button(label="Wrong version - post-April 2016")
+            copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                navigator.clipboard.writeText(content);
+                """))
 
-        copy_button = Button(label="Wrong version - post-April 2016")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+            no_event = streamlit_bokeh_events(
+                copy_button,
+                events="GET_TEXT2",
+                key="get_text2",
+                refresh_on_update=True,
+                override_height=75,
+                debounce_time=0)
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT2",
-            key="get_text2",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        with col2:
+            text_to_be_copied = df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0]
+            copy_dict = {"content": text_to_be_copied}
 
-    with col2:
-        text_to_be_copied = df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+            copy_button = Button(label="Free to access link")
+            copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                navigator.clipboard.writeText(content);
+                """))
 
-        copy_button = Button(label="Free to access link")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+            no_event = streamlit_bokeh_events(
+                copy_button,
+                events="GET_TEXT3",
+                key="get_text3",
+                refresh_on_update=True,
+                override_height=75,
+                debounce_time=0)
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT3",
-            key="get_text3",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        col1, col2 = st.columns(2)
+        with col1:
+            text_to_be_copied = df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0]
+            copy_dict = {"content": text_to_be_copied}
 
-    col1, col2 = st.columns(2)
-    with col1:
-        text_to_be_copied = df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+            copy_button = Button(label="OAL - arXiv")
+            copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                navigator.clipboard.writeText(content);
+                """))
 
-        copy_button = Button(label="OAL - arXiv")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
+            no_event = streamlit_bokeh_events(
+                copy_button,
+                events="GET_TEXT4",
+                key="get_text4",
+                refresh_on_update=True,
+                override_height=75,
+                debounce_time=0)
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT4",
-            key="get_text4",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
+        with col2:
+            text_to_be_copied = df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0]
+            copy_dict = {"content": text_to_be_copied}
 
-    with col2:
-        text_to_be_copied = df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0]
-        copy_dict = {"content": text_to_be_copied}
+            copy_button = Button(label="Duplicate record")
+            copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                navigator.clipboard.writeText(content);
+                """))
 
-        copy_button = Button(label="Duplicate record")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
-
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT5",
-            key="get_text5",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-
-with st.expander('List of rejection reasons'):
-    st.dataframe(df_new['rejection reason'])
+            no_event = streamlit_bokeh_events(
+                copy_button,
+                events="GET_TEXT5",
+                key="get_text5",
+                refresh_on_update=True,
+                override_height=75,
+                debounce_time=0)
+with col2:
+    with st.expander('List of rejection reasons'):
+        st.dataframe(df_new['rejection reason'])
