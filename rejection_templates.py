@@ -44,7 +44,7 @@ with col1:
         override_height=75,
         debounce_time=0)
 
-col1, col2 = st.columns(2,1)
+col1, col2 = st.columns(2)
 
 with col1:
 
