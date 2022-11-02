@@ -54,7 +54,7 @@ with col2:
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header('Frequently used templates')
+    st.subheader('Frequently used templates')
     with st.expander('Free to access link'):
         st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
 
