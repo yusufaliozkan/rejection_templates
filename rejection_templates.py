@@ -20,10 +20,11 @@ df = pd.read_csv('templates.csv', names=column_names)
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
+st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
+
 col1, col2 = st.columns(2)
 
 with col1:
-    st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
     clist = df_new['rejection reason'].unique()
     reason = st.selectbox("Select a reason:",clist)
 
