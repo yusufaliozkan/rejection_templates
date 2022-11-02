@@ -11,7 +11,7 @@ st.set_page_config(layout = "wide", page_title='Imperial College London - Spiral
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 st.markdown("# Rejection templates tool")
 
-st.sidebar.image(path, width=150)
+st.sidebar.image(path, width=200)
 st.sidebar.markdown("# Rejection templates tool")
 
 # Exporting dataset
