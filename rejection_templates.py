@@ -122,3 +122,7 @@ with col1:
 with col2:
     with st.expander('List of rejection reasons'):
         st.dataframe(df_new['rejection reason'])
+    with st.expander('Template in HTML format (Free to access link)'):
+        st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
+
+
