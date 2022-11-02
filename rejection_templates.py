@@ -54,8 +54,6 @@ col1, col2 = st.columns(2)
 
 with col1:
     with st.expander("Frequently used copyright statements"):
-            col1, col2 = st.columns(2)
-            with col1:
                 text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
                 copy_dict = {"content": text_to_be_copied}
 
@@ -72,7 +70,6 @@ with col1:
                     override_height=75,
                     debounce_time=0)
 
-            with col2:
                 text_to_be_copied = df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0]
                 copy_dict = {"content": text_to_be_copied}
 
@@ -89,8 +86,7 @@ with col1:
                     override_height=75,
                     debounce_time=0)
 
-            col1, col2 = st.columns(2)
-            with col1:
+
                 text_to_be_copied = df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0]
                 copy_dict = {"content": text_to_be_copied}
 
@@ -107,7 +103,6 @@ with col1:
                     override_height=75,
                     debounce_time=0)
 
-            with col2:
                 text_to_be_copied = df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0]
                 copy_dict = {"content": text_to_be_copied}
 
