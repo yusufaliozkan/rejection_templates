@@ -48,7 +48,7 @@ with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
     with st.expander('Template in HTML format (' + reason+')'):
-        df_reason1 = df_reason.reset_index(drop=True, inplace=True)
+        df_reason1 = pd.RangeIndex(len(df_reason.index))
         st.code(df_reason1)
 
 
