@@ -65,8 +65,8 @@ with col1:
                 st.write(df_eg2)
                 if len(df_eg3)>3:
                     st.write(df_eg3)
-                    if len(df_eg4)>3:
-                        st.write(df_eg4)
+                    # if len(df_eg4)>3:
+                    #     st.write(df_eg4)
 
         else:
             st.write('No publisher example!')
