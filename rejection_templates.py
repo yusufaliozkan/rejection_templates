@@ -58,8 +58,22 @@ with col1:
         df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-        st.code(df_eg1+" "+df_eg2+" "+df_eg3+" "+df_eg4)
+        a = st.write(df_eg1+" "+df_eg2+" "+df_eg3+" "+df_eg4)
+        copy_dict = {"content": a}
 
+
+        copy_button = Button(label="Copy the HTML template to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXTa",
+            key="get_texta",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
