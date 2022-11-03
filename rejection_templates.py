@@ -87,7 +87,7 @@ publisher = st.selectbox("Select a publisher:",clist)
 df_pub = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
 text_to_be_copied = df_pub
 copy_dict = {"content": text_to_be_copied}
-
+st.write(copy_dict)
 
 copy_button = Button(label="Copy the HTML template to clipboard")
 copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
