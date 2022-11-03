@@ -59,14 +59,10 @@ with col1:
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
 
-        if len(df_eg1)>4:
-            st.write(df_eg1)
-            if len(df_eg2)>4: 
-                st.write(df_eg2)
-                if len(df_eg3)>4: 
-                    st.write(df_eg3)
-                    if len(df_eg4)>4: 
-                        st.write(df_eg4)
+        st.write(df_eg1)
+        st.write(df_eg2)
+        st.write(df_eg3)
+        st.write(df_eg4)
 
 
 with col2:
