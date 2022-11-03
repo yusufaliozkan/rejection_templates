@@ -72,6 +72,11 @@ with col2:
     st.dataframe(df_new['rejection reason'])
 
 
+public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
+csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
+df_org = pd.read_csv(csv_export_url)
+df_org
+
 # with col1:
 #     with st.expander("Frequently used copyright statements"):
 #         text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
