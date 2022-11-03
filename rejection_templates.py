@@ -74,9 +74,12 @@ with col2:
 
 public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
 csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
-df_org = pd.read_csv(csv_export_url)
-df_org
+df_am = pd.read_csv(csv_export_url)
 
+
+df_am['Publisher'] = df_am['Publisher'].astype(str)
+df_am2 = df_am.sort_values(by='Publisher')
+df_am2
 # with col1:
 #     with st.expander("Frequently used copyright statements"):
 #         text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
