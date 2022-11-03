@@ -62,12 +62,6 @@ with col1:
         st.write(df_eg2)
         st.write(df_eg3)
 
-        st.code(df_eg1)
-        st.code(df_eg2)
-        st.code(df_eg3)
-        st.code(df_eg4)
-
-
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
