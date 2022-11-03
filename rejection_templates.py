@@ -51,9 +51,9 @@ with col1:
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
 
-    clist = df_am2['Publisher'].unique()
-    publisher = st.selectbox("Select a publisher:",clist)
-    with st.expander('aa'):
+    with st.expander('Publisher AAM examples'):
+        clist = df_am2['Publisher'].unique()
+        publisher = st.selectbox("Select a publisher:",clist)
         df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
         df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
