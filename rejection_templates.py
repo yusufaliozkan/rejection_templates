@@ -88,7 +88,7 @@ df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
 
 
 
-st.code(df_eg1, df_eg2,df_eg3, df_eg4)
+st.code(df_eg1) #, df_eg2,df_eg3, df_eg4)
 
 
 # with col1:
