@@ -51,8 +51,7 @@ with col1:
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
 
-    with st.expander('Publisher AAM examples'):
-        st.write('Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
+    with st.expander('Publisher AAM examples*'):
         clist = df_am2['Publisher'].unique()
         publisher = st.selectbox("Select a publisher:",clist)
         df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
@@ -63,7 +62,7 @@ with col1:
         st.write(df_eg2)
         st.write(df_eg3)
         st.write(df_eg4)
-
+        st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
