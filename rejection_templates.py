@@ -84,7 +84,7 @@ df_am2
 
 clist = df_am2['Publisher'].unique()
 publisher = st.selectbox("Select a publisher:",clist)
-df_pub = df_am2.loc[df_am2['Publisher']==publisher, 'Link', 'Example'].values[0]
+df_pub = df_am2.loc[df_am2['Publisher']==publisher, ('Link', 'Example')].values[0]
 text_to_be_copied = df_pub
 
 st.code(text_to_be_copied)
