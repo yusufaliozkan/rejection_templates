@@ -88,7 +88,8 @@ with col1:
 
 with col2:
     st.subheader('List of rejection reasons')
-    st.dataframe(df_new['rejection reason'])
+    df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+    st.dataframe(df_reasons_only)
 
 
 # with col1:
