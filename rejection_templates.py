@@ -59,6 +59,7 @@ with col1:
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
         a = st.write(df_eg1+" "+df_eg2+" "+df_eg3+" "+df_eg4)
+        a
         copy_dict = {"content": st.write(df_eg1+" "+df_eg2+" "+df_eg3+" "+df_eg4)}
 
 
