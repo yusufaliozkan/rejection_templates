@@ -63,7 +63,6 @@ with col1:
         st.write(df_eg3)
         st.write(df_eg4)
 
-
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
