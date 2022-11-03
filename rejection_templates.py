@@ -67,6 +67,8 @@ with col1:
                     st.write(df_eg3)
                     if len(df_eg4):
                         st.write(df_eg4)
+                    else:
+                        st.write('No publisher example!')
         else:
             st.write('No publisher example!')
         st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
