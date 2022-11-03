@@ -53,18 +53,19 @@ with col1:
 
     clist = df_am2['Publisher'].unique()
     publisher = st.selectbox("Select a publisher:",clist)
-    df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
-    df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
-    df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
-    df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-    st.write(df_eg1)
-    st.write(df_eg2)
-    st.write(df_eg3)
+    with st.expander():
+        df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
+        df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
+        df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
+        df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
+        st.write(df_eg1)
+        st.write(df_eg2)
+        st.write(df_eg3)
 
-    st.code(df_eg1)
-    st.code(df_eg2)
-    st.code(df_eg3)
-    st.code(df_eg4)
+        st.code(df_eg1)
+        st.code(df_eg2)
+        st.code(df_eg3)
+        st.code(df_eg4)
 
 
 with col2:
