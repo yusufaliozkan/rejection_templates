@@ -291,7 +291,7 @@ body{background-color: #ebeeee;}
 
   <h1>Spiral Notice: Action Required</h1>
   <div style=""display: none"">OTHER</div>
-      <p style=""font-size: 12px; text-decoration: none; font-family: Arial,Helvetica,sans-serif; font-weight: normal; margin: 0px; padding: 0px 0px 12px 0px;"">Dear <span style=""background-color: #ffff00;"">INSERT AUTHOR NAME,</span></p>
+      <p style=""font-size: 12px; text-decoration: none; font-family: Arial,Helvetica,sans-serif; font-weight: normal; margin: 0px; padding: 0px 0px 12px 0px;"">Dear <span style=""background-color: #ffff00;"">INSERT AUTHOR NAME,</span></p><br>
         
             <p style=""font-size: 12px; text-decoration: none; font-family: Arial,Helvetica,sans-serif; font-weight: normal; margin: 0px; padding: 0px 0px 12px 0px;"">Thank you for submitting your paper. Unfortunately I was unable to approve your submission, <span style=""background-color: #ffff00;"">INSERT TEXT</span>.</p><br>
          <p style=""font-size: 12px; text-decoration: none; font-family: Arial,Helvetica,sans-serif; font-weight: normal; margin: 0px; padding: 0px 0px 12px 0px;"">If you have any questions or concerns, please do not hesitate to contact us via <a href=""mailto:openaccess@imperial.ac.uk"" target=""_blank"">openaccess@imperial.ac.uk</a>.</p><br>
