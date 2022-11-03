@@ -69,8 +69,7 @@ with col1:
 
 with col2:
     st.subheader('List of rejection reasons')
-    st.dataframe(df_new['rejection reason'])
-
+    st.dataframe(df_new['rejection reason'](inplace = True, drop = True))
 
 
 # with col1:
