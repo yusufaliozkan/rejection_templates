@@ -52,6 +52,7 @@ with col1:
     df_am2 = df_am.sort_values(by='Publisher')
 
     with st.expander('Publisher AAM examples'):
+        st.write('Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
         clist = df_am2['Publisher'].unique()
         publisher = st.selectbox("Select a publisher:",clist)
         df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
