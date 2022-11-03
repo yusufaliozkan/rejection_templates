@@ -61,7 +61,9 @@ with col1:
         d = {'Publisher AAM examples': [df_eg1, df_eg2, df_eg3,df_eg4]}
         df_egs = pd.DataFrame(data=d)
         df_egs
-        copy_dict = {"content": df_egs}
+        text_to_be_copied = df_egs
+        copy_dict = {"content": text_to_be_copied}
+
 
         copy_button = Button(label="Copy the HTML template to clipboard")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
@@ -70,8 +72,8 @@ with col1:
 
         no_event = streamlit_bokeh_events(
             copy_button,
-            events="GET_TEXTa",
-            key="get_texta",
+            events="GET_TEXT99",
+            key="get_text99",
             refresh_on_update=True,
             override_height=75,
             debounce_time=0)
