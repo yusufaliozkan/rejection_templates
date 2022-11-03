@@ -58,18 +58,11 @@ with col1:
         df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-
-        if len(df_eg1)>3:
-            st.write(df_eg1)
-            if len(df_eg2)>3:
-                st.write(df_eg2)
-                if len(df_eg3)>3:
-                    st.write(df_eg3)
-                    # if len(df_eg4)>3:
-                    #     st.write(df_eg4)
-
-        else:
-            st.write('No publisher example!')
+        
+        st.write(df_eg1)
+        st.write(df_eg2)
+        st.write(df_eg3)
+        st.write(df_eg4)
         st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
