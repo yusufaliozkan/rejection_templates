@@ -44,6 +44,26 @@ with col1:
         override_height=75,
         debounce_time=0)
 
+    public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
+    csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
+    df_am = pd.read_csv(csv_export_url)
+
+    df_am['Publisher'] = df_am['Publisher'].astype(str)
+    df_am2 = df_am.sort_values(by='Publisher')
+
+    clist = df_am2['Publisher'].unique()
+    publisher = st.selectbox("Select a publisher:",clist)
+    df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
+    df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
+    df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
+    df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
+
+    st.code(df_eg1)
+    st.code(df_eg2)
+    st.code(df_eg3)
+    st.code(df_eg4)
+
+
 with col2:
     with st.expander('Template view (' + reason+')', expanded=False):
         components.html(df_reason, height=1500)
@@ -70,30 +90,6 @@ with col1:
 with col2:
     st.subheader('List of rejection reasons')
     st.dataframe(df_new['rejection reason'])
-
-
-public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
-csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
-df_am = pd.read_csv(csv_export_url)
-
-
-df_am['Publisher'] = df_am['Publisher'].astype(str)
-df_am2 = df_am.sort_values(by='Publisher')
-df_am2
-
-
-clist = df_am2['Publisher'].unique()
-publisher = st.selectbox("Select a publisher:",clist)
-df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
-df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
-df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
-df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-
-st.code(df_eg1)
-st.code(df_eg2)
-st.code(df_eg3)
-st.code(df_eg4)
-
 
 
 # with col1:
