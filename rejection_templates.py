@@ -91,7 +91,7 @@ with col2:
     df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
     st.dataframe(df_reasons_only)
 
-with st.sidebar():
+with st.sidebar:
 
     st.subheader('List of rejection reasons')
     df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
