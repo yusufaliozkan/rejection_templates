@@ -61,12 +61,12 @@ with col1:
 
         if len(df_eg1)>4:
             st.write(df_eg1)
-        if len(df_eg2)>4: 
-            st.write(df_eg2)
-        if len(df_eg3)>4: 
-            st.write(df_eg3)
-        if len(df_eg4)>4: 
-            st.write(df_eg4)
+            if len(df_eg2)>4: 
+                st.write(df_eg2)
+                if len(df_eg3)>4: 
+                    st.write(df_eg3)
+                    if len(df_eg4)>4: 
+                        st.write(df_eg4)
 
 
 with col2:
