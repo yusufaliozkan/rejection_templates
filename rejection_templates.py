@@ -80,6 +80,29 @@ df_am = pd.read_csv(csv_export_url)
 df_am['Publisher'] = df_am['Publisher'].astype(str)
 df_am2 = df_am.sort_values(by='Publisher')
 df_am2
+
+
+clist = df_am2['Publisher'].unique()
+publisher = st.selectbox("Select a publisher:",clist)
+df_pub = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
+text_to_be_copied = df_pub
+copy_dict = {"content": text_to_be_copied}
+
+
+copy_button = Button(label="Copy the HTML template to clipboard")
+copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+    navigator.clipboard.writeText(content);
+    """))
+
+no_event = streamlit_bokeh_events(
+    copy_button,
+    events="GET_TEXTpub",
+    key="get_textpub",
+    refresh_on_update=True,
+    override_height=75,
+    debounce_time=0)
+
+
 # with col1:
 #     with st.expander("Frequently used copyright statements"):
 #         text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
