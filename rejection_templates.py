@@ -51,6 +51,9 @@ with col1:
 
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
+    df_am2['example statements'] = df_am2[df_am2.columns['Link', 'Example File', 'Example Image', 'Example File/2nd Image']].apply(
+        lambda x: ','.join(x.dropna().astype(str)),
+    )
     df_am2
 
     with st.expander('Publisher AAM examples*'):
