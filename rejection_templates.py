@@ -63,7 +63,7 @@ with col1:
         d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
         df_egs = pd.DataFrame(data=d)
         df_egs2=df_egs.to_string(index=False)
-        df_egs2
+        df_egs2['examples'] = df_egs2['examples'].map(lambda x: x.rstrip('NaN'))
         
         st.write(df_eg1)
         st.write(df_eg2)
