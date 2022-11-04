@@ -61,7 +61,7 @@ with col1:
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
 
         d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
-        df_egs = pd.DataFrame(data=d)
+        df_egs = pd.DataFrame(data=d, index_col=False)
         df_egs
         
         st.write(df_eg1)
