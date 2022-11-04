@@ -62,7 +62,8 @@ with col1:
 
         d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
         df_egs = pd.DataFrame(data=d, index=index_labels)
-        df_egs
+        blankIndex=[''] * len(df_egs)
+        df_egs.index=blankIndex
         
         st.write(df_eg1)
         st.write(df_eg2)
