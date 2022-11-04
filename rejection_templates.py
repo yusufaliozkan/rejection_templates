@@ -64,6 +64,7 @@ with col1:
         df_egs = pd.DataFrame(data=d)
         blankIndex=[''] * len(df_egs)
         df_egs.index=blankIndex
+        df_egs
         
         st.write(df_eg1)
         st.write(df_eg2)
