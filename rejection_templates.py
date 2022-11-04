@@ -66,9 +66,9 @@ with col1:
         st.write(df_eg4)
         st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
 with col2:
-    with st.expander('Template view (' + reason+')', expanded=False):
+    with st.expander('View template (' + reason+')', expanded=False):
         components.html(df_reason, height=800)
-    with st.expander('Template in HTML format (' + reason+')'):
+    with st.expander('View template in HTML format (' + reason+')'):
         st.code(df_reason)
 
 
