@@ -51,6 +51,7 @@ with col1:
 
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
+    df_am2
 
     with st.expander('Publisher AAM examples*'):
         clist = df_am2['Publisher'].unique()
