@@ -51,7 +51,7 @@ with col1:
 
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
-    df_am2['example_statements'] = df_am2['Link'] + df_am2['Example File'] + df_am2['Example Image'] + df_am2['Example File/2nd Image']
+    df_am2['example_statements'] = df_am2['Link'] + " "+ df_am2['Example File'] + " "+ df_am2['Example Image'] + " "+ df_am2['Example File/2nd Image']
     df_am2
 
     with st.expander('Publisher AAM examples*'):
