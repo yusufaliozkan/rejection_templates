@@ -62,8 +62,7 @@ with col1:
 
         d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
         df_egs = pd.DataFrame(data=d)
-        blankIndex=[''] * len(df_egs)
-        df_egs.index=blankIndex
+        df_egs.style.hide_index()
         df_egs
         
         st.write(df_eg1)
