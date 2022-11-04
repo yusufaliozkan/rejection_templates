@@ -59,11 +59,6 @@ with col1:
         df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
         df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
         df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-
-        d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
-        df_egs = pd.DataFrame(data=d)
-        df_egs2=df_egs.to_string(index=False)
-        df_egs2['examples'] = df_egs2['examples'].str.replace('Nan', '')
         
         st.write(df_eg1)
         st.write(df_eg2)
