@@ -9,9 +9,8 @@ import streamlit.components.v1 as components
 # Setting the app page layout
 st.set_page_config(layout = "wide", page_title='Imperial College London - Spiral statistics dashboard', page_icon='https://pbs.twimg.com/profile_images/1509826209563263008/cNh9JRjd_400x400.jpg')
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
-st.markdown("# Rejection templates tool")
-
 st.image('header_full.png')
+st.markdown("# Rejection templates tool")
 
 st.sidebar.image(path, width=200)
 st.sidebar.markdown("# Rejection templates tool") 
