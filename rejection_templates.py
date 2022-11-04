@@ -62,7 +62,7 @@ with col1:
 
         d = {'examples':[df_eg1,df_eg2,df_eg3,df_eg4]}
         df_egs = pd.DataFrame(data=d)
-        df_egs(index_col=False)
+        df_egs.to_string(index_col=False)
         
         st.write(df_eg1)
         st.write(df_eg2)
