@@ -51,8 +51,6 @@ with col1:
 
     df_am['Publisher'] = df_am['Publisher'].astype(str)
     df_am2 = df_am.sort_values(by='Publisher')
-    df_am2['example_statements'] = str(df_am2[['Link', 'Example File', 'Example Image', 'Example File/2nd Image']]).apply(lambda x: '_'.join(x), axis=1)
-    df_am2
 
     with st.expander('Publisher AAM examples*'):
         clist = df_am2['Publisher'].unique()
