@@ -94,6 +94,10 @@ with col2:
     st.dataframe(df_reasons_only)
 
 
+with st.expander('HTML editor', expanded=False):
+    components.iframe("https://jsonformatter.org/html-viewer")
+
+
 # with col1:
 #     with st.expander("Frequently used copyright statements"):
 #         text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
