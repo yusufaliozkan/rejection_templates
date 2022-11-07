@@ -97,8 +97,7 @@ with tab1:
         st.dataframe(df_reasons_only)
 
 with tab2:
-    # with st.expander('HTML editor', expanded=False):
-        components.iframe("https://jsonformatter.org/html-viewer", height=800)
+    components.iframe("https://jsonformatter.org/html-viewer", height=800)
 
 
 # with col1:
