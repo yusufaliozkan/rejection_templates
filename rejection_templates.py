@@ -21,81 +21,84 @@ df = pd.read_csv('templates.csv', names=column_names)
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
-st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
+tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
 
-col1, col2 = st.columns([1,2])
-with col1:
-    clist = df_new['rejection reason'].unique()
-    reason = st.selectbox("Select a reason:",clist)
-    df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
-    text_to_be_copied = df_reason
-    copy_dict = {"content": text_to_be_copied}
+with tab1:
+    st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
 
-
-    copy_button = Button(label="Copy the HTML template to clipboard")
-    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-        navigator.clipboard.writeText(content);
-        """))
-
-    no_event = streamlit_bokeh_events(
-        copy_button,
-        events="GET_TEXT",
-        key="get_text",
-        refresh_on_update=True,
-        override_height=75,
-        debounce_time=0)
-
-    public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
-    csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
-    df_am = pd.read_csv(csv_export_url)
-
-    df_am['Publisher'] = df_am['Publisher'].astype(str)
-    df_am2 = df_am.sort_values(by='Publisher')
-
-    with st.expander('Publisher AAM examples*'):
-        clist = df_am2['Publisher'].unique()
-        publisher = st.selectbox("Select a publisher:",clist)
-        df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
-        df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
-        df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
-        df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-        
-        st.write(df_eg1)
-        st.write(df_eg2)
-        st.write(df_eg3)
-        st.write(df_eg4)
-        st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
-with col2:
-    with st.expander('View template (' + reason+')', expanded=False):
-        components.html(df_reason, height=800)
-    with st.expander('View template in HTML format (' + reason+')'):
-        st.code(df_reason)
+    col1, col2 = st.columns([1,2])
+    with col1:
+        clist = df_new['rejection reason'].unique()
+        reason = st.selectbox("Select a reason:",clist)
+        df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
+        text_to_be_copied = df_reason
+        copy_dict = {"content": text_to_be_copied}
 
 
-col1, col2 = st.columns([2,1])
+        copy_button = Button(label="Copy the HTML template to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
 
-with col1:
-    st.subheader('Frequently used templates')
-    with st.expander('Wrong version - post-April 2016'):
-        st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
-    with st.expander('Free to access link'):
-        st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
-    with st.expander('OAL - arXiv'):
-        st.code(df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0])
-    with st.expander('Duplicate record'):
-        st.code(df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0])
-    with st.expander('Blank template'):
-        st.code(df.loc[df_new['rejection reason']=='Blank template', 'rejection template'].values[0])
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXT",
+            key="get_text",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
+        public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
+        csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
+        df_am = pd.read_csv(csv_export_url)
+
+        df_am['Publisher'] = df_am['Publisher'].astype(str)
+        df_am2 = df_am.sort_values(by='Publisher')
+
+        with st.expander('Publisher AAM examples*'):
+            clist = df_am2['Publisher'].unique()
+            publisher = st.selectbox("Select a publisher:",clist)
+            df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
+            df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
+            df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
+            df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
+            
+            st.write(df_eg1)
+            st.write(df_eg2)
+            st.write(df_eg3)
+            st.write(df_eg4)
+            st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
+    with col2:
+        with st.expander('View template (' + reason+')', expanded=False):
+            components.html(df_reason, height=800)
+        with st.expander('View template in HTML format (' + reason+')'):
+            st.code(df_reason)
 
 
-with col2:
-    st.subheader('List of rejection reasons')
-    df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
-    st.dataframe(df_reasons_only)
+    col1, col2 = st.columns([2,1])
+
+    with col1:
+        st.subheader('Frequently used templates')
+        with st.expander('Wrong version - post-April 2016'):
+            st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
+        with st.expander('Free to access link'):
+            st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
+        with st.expander('OAL - arXiv'):
+            st.code(df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0])
+        with st.expander('Duplicate record'):
+            st.code(df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0])
+        with st.expander('Blank template'):
+            st.code(df.loc[df_new['rejection reason']=='Blank template', 'rejection template'].values[0])
 
 
-with st.expander('HTML editor', expanded=False):
-    components.iframe("https://jsonformatter.org/html-viewer", height=800)
+    with col2:
+        st.subheader('List of rejection reasons')
+        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+        st.dataframe(df_reasons_only)
+
+with tab2:
+    # with st.expander('HTML editor', expanded=False):
+        components.iframe("https://jsonformatter.org/html-viewer", height=800)
 
 
 # with col1:
