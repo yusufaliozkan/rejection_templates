@@ -94,8 +94,8 @@ with col2:
     st.dataframe(df_reasons_only)
 
 
-with st.expander('HTML editor', expanded=False, height=800):
-    components.iframe("https://jsonformatter.org/html-viewer")
+with st.expander('HTML editor', expanded=False):
+    components.iframe("https://jsonformatter.org/html-viewer", height=800)
 
 
 # with col1:
