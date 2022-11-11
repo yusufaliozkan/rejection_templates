@@ -13,7 +13,7 @@ path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_Col
 st.image(path, width=200)
 st.markdown("# Rejection templates tool")
 
-st.sidebar.markdown("# Rejection templates tool") 
+# st.sidebar.markdown("# Rejection templates tool") 
 
 # Exporting dataset
 column_names = ['rejection reason', 'rejection template']
