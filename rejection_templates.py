@@ -70,7 +70,7 @@ with tab1:
             st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')
     with col2:
         with st.expander('View template (' + reason+')', expanded=False):
-            components.html(df_reason, height=800)
+            components.html(df_reason, height=800, scrolling=True)
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
 
