@@ -78,7 +78,6 @@ with tab1:
     col1, col2 = st.columns([1,2])
 
     with col1:
-        display = st.checkbox('Display the rejection statement')
         df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
         frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
@@ -98,6 +97,7 @@ with tab1:
             debounce_time=0)
 
     with col2:
+        display = st.checkbox('Display the rejection statement')
         if display:
             components.html(text_to_be_copied, height=800, scrolling=True)
         # with st.expander('View template (' + frequently+')', expanded=False):
