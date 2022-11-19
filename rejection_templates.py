@@ -83,7 +83,7 @@ with tab1:
         frequently = st.radio('Choose a publisher to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
 
-        st.expander('View template (' + text_to_be_copied+')', expanded=False)
+        st.expander('View template (' + text_to_be_copied+')', expanded=False) 
 
         with st.expander('Wrong version - post-April 2016'):
             st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
