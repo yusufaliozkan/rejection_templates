@@ -83,6 +83,7 @@ with tab1:
         frequently = st.radio('Choose a publisher to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
 
+    with col2:
         with st.expander('View template (' + frequently+')', expanded=False):
             components.html(text_to_be_copied, height=800, scrolling=True)
 
@@ -98,10 +99,10 @@ with tab1:
         #     st.code(df.loc[df_new['rejection reason']=='Blank template', 'rejection template'].values[0])
 
 
-    with col2:
-        st.subheader('List of rejection reasons')
-        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
-        st.dataframe(df_reasons_only)
+    # with col2:
+    #     st.subheader('List of rejection reasons')
+    #     df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+    #     st.dataframe(df_reasons_only)
 
 with tab2:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
