@@ -79,7 +79,7 @@ with tab1:
 
     with col1:
         st.subheader('Frequently used templates')
-        df_frequent = df.loc[df_new['reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
+        df_frequent = df.loc[df_new['Publisher'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
         df_frequent
         with st.expander('Wrong version - post-April 2016'):
             st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
