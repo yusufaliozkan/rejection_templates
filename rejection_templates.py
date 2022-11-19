@@ -82,11 +82,25 @@ with tab1:
         df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
         frequently = st.radio('Choose a publisher to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="Copy the HTML template to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXT2",
+            key="get_text2",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
 
     with col2:
         with st.expander('View template (' + frequently+')', expanded=False):
             components.html(text_to_be_copied, height=800, scrolling=True)
-
+        
         # with st.expander('Wrong version - post-April 2016'):
         #     st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
         # with st.expander('Free to access link'):
