@@ -54,9 +54,6 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
 
-
-    st.subheader('Frequently used templates')
-
     col1, col2 = st.columns([1,2])
     with col1:
         public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
@@ -86,7 +83,7 @@ with tab1:
             st.dataframe(df_reasons_only)
 
     col1, col2 = st.columns([1,2])
-
+    st.subheader('Frequently used templates')
     with col1:
         df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
         frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
