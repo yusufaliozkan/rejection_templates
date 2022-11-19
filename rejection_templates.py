@@ -55,6 +55,32 @@ with tab1:
             st.code(df_reason)
 
     col1, col2 = st.columns([1,2])
+
+    with col1:
+        df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
+        frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
+        text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
+        copy_dict = {"content": text_to_be_copied}
+
+        copy_button = Button(label="Copy HTML template to clipboard")
+        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+            navigator.clipboard.writeText(content);
+            """))
+
+        no_event = streamlit_bokeh_events(
+            copy_button,
+            events="GET_TEXT2",
+            key="get_text2",
+            refresh_on_update=True,
+            override_height=75,
+            debounce_time=0)
+
+    with col2:
+        display = st.checkbox('Display the rejection statement')
+        if display:
+            components.html(text_to_be_copied, height=800, scrolling=True)
+
+    col1, col2 = st.columns([1,2])
     with col1:
         public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
         csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
@@ -83,33 +109,6 @@ with tab1:
         with st.expander('List of rejection reasons', expanded=False):      
             df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
             st.dataframe(df_reasons_only)
-
-    col1, col2 = st.columns([1,2])
-
-    with col1:
-        df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
-        frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
-        text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
-        copy_dict = {"content": text_to_be_copied}
-
-        copy_button = Button(label="Copy HTML template to clipboard")
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-            """))
-
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT2",
-            key="get_text2",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0)
-
-    with col2:
-        display = st.checkbox('Display the rejection statement')
-        if display:
-            components.html(text_to_be_copied, height=800, scrolling=True)
-
         # with st.expander('View template (' + frequently+')', expanded=False):
         #     components.html(text_to_be_copied, height=800, scrolling=True)
 
