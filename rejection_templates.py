@@ -54,6 +54,27 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
 
+    public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
+    csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
+    df_am = pd.read_csv(csv_export_url)
+
+    df_am['Publisher'] = df_am['Publisher'].astype(str)
+    df_am2 = df_am.sort_values(by='Publisher')
+
+    with st.expander('Publisher AAM examples*'):
+        clist = df_am2['Publisher'].unique()
+        publisher = st.selectbox("Select a publisher:",clist)
+        df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
+        df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
+        df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
+        df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
+        
+        st.write(df_eg1)
+        st.write(df_eg2)
+        st.write(df_eg3)
+        st.write(df_eg4)
+        st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')    
+
     st.subheader('Frequently used templates')
     col1, col2 = st.columns([1,2])
 
@@ -86,26 +107,7 @@ with tab1:
         # with st.expander('View template (' + frequently+')', expanded=False):
         #     components.html(text_to_be_copied, height=800, scrolling=True)
 
-    public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
-    csv_export_url = public_gsheets_url.replace('/edit#gid=', '/export?format=csv&gid=')
-    df_am = pd.read_csv(csv_export_url)
-
-    df_am['Publisher'] = df_am['Publisher'].astype(str)
-    df_am2 = df_am.sort_values(by='Publisher')
-
-    with st.expander('Publisher AAM examples*'):
-        clist = df_am2['Publisher'].unique()
-        publisher = st.selectbox("Select a publisher:",clist)
-        df_eg1 = df_am2.loc[df_am2['Publisher']==publisher, 'Link'].values[0]
-        df_eg2 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File'].values[0]
-        df_eg3 = df_am2.loc[df_am2['Publisher']==publisher, 'Example Image'].values[0]
-        df_eg4 = df_am2.loc[df_am2['Publisher']==publisher, 'Example File/2nd Image'].values[0]
-        
-        st.write(df_eg1)
-        st.write(df_eg2)
-        st.write(df_eg3)
-        st.write(df_eg4)
-        st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')        
+    
 
     # with col2:
     #     st.subheader('List of rejection reasons')
