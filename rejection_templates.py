@@ -35,7 +35,7 @@ with tab1:
         copy_dict = {"content": text_to_be_copied}
 
 
-        copy_button = Button(label="Copy the HTML template to clipboard")
+        copy_button = Button(label="Copy HTML template to clipboard")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
@@ -84,7 +84,7 @@ with tab1:
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
-        copy_button = Button(label="Copy the HTML template to clipboard")
+        copy_button = Button(label="Copy HTML template to clipboard")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
             """))
