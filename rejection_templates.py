@@ -82,8 +82,9 @@ with tab1:
             df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
             st.dataframe(df_reasons_only)
 
-    col1, col2 = st.columns([1,2])
     st.subheader('Frequently used templates')
+    col1, col2 = st.columns([1,2])
+
     with col1:
         df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
         frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
