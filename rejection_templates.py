@@ -54,6 +54,9 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
 
+
+    st.subheader('Frequently used templates')
+
     col1, col2 = st.columns([1,2])
 
     with col1:
@@ -102,8 +105,6 @@ with tab1:
             st.write(df_eg3)
             st.write(df_eg4)
             st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')    
-
-    st.subheader('Frequently used templates')
 
     with col2:  
         with st.expander('List of rejection reasons', expanded=False):      
