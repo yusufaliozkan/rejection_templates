@@ -78,6 +78,13 @@ with tab1:
             st.write('*Publisher Accepted Manuscript statements in [UKCORR knowledgebase](https://www.ukcorr.org/knowledgebase/) is used')    
 
     st.subheader('Frequently used templates')
+
+    with col2:
+        components.html(text_to_be_copied, height=800, scrolling=True)
+        st.subheader('List of rejection reasons')
+        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+        st.dataframe(df_reasons_only)
+
     col1, col2 = st.columns([1,2])
 
     with col1:
@@ -102,10 +109,7 @@ with tab1:
     with col2:
         display = st.checkbox('Display the rejection statement')
         if display:
-            components.html(text_to_be_copied, height=800, scrolling=True)
-        st.subheader('List of rejection reasons')
-        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
-        st.dataframe(df_reasons_only)
+
         # with st.expander('View template (' + frequently+')', expanded=False):
         #     components.html(text_to_be_copied, height=800, scrolling=True)
 
