@@ -53,7 +53,7 @@ with tab1:
             components.html(df_reason, height=800, scrolling=True)
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
-    
+
     col1, col2 = st.columns([1,2])
     with col1:
         public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
@@ -79,8 +79,7 @@ with tab1:
 
     st.subheader('Frequently used templates')
 
-    with col2:
-        components.html(text_to_be_copied, height=800, scrolling=True)
+    with col2:        
         st.subheader('List of rejection reasons')
         df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
         st.dataframe(df_reasons_only)
@@ -109,11 +108,12 @@ with tab1:
     with col2:
         display = st.checkbox('Display the rejection statement')
         if display:
+            components.html(text_to_be_copied, height=800, scrolling=True)
 
         # with st.expander('View template (' + frequently+')', expanded=False):
         #     components.html(text_to_be_copied, height=800, scrolling=True)
 
-    
+
 
     # with col2:
     #     st.subheader('List of rejection reasons')
