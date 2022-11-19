@@ -79,10 +79,10 @@ with tab1:
 
     st.subheader('Frequently used templates')
 
-    with col2:        
-        st.subheader('List of rejection reasons')
-        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
-        st.dataframe(df_reasons_only)
+    with col2:  
+        with st.expander('List of rejection reasons', expanded=False):      
+            df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+            st.dataframe(df_reasons_only)
 
     col1, col2 = st.columns([1,2])
 
