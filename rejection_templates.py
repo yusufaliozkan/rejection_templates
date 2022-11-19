@@ -80,7 +80,7 @@ with tab1:
     with col1:
         
         df_frequent = df.loc[df_new['rejection reason'].isin(['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
-        frequently = st.radio('Choose a publisher to display the statement', df_frequent['rejection reason'])
+        frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
         copy_dict = {"content": text_to_be_copied}
 
@@ -101,17 +101,6 @@ with tab1:
         with st.expander('View template (' + frequently+')', expanded=False):
             components.html(text_to_be_copied, height=800, scrolling=True)
         
-        # with st.expander('Wrong version - post-April 2016'):
-        #     st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
-        # with st.expander('Free to access link'):
-        #     st.code(df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0])
-        # with st.expander('OAL - arXiv'):
-        #     st.code(df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0])
-        # with st.expander('Duplicate record'):
-        #     st.code(df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0])
-        # with st.expander('Blank template'):
-        #     st.code(df.loc[df_new['rejection reason']=='Blank template', 'rejection template'].values[0])
-
 
     # with col2:
     #     st.subheader('List of rejection reasons')
@@ -120,71 +109,3 @@ with tab1:
 
 with tab2:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
-
-
-# with col1:
-#     with st.expander("Frequently used copyright statements"):
-#         text_to_be_copied = df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0]
-#         copy_dict = {"content": text_to_be_copied}
-
-#         copy_button = Button(label="Wrong version - post-April 2016")
-#         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-#             navigator.clipboard.writeText(content);
-#             """))
-
-#         no_event = streamlit_bokeh_events(
-#             copy_button,
-#             events="GET_TEXT2",
-#             key="get_text2",
-#             refresh_on_update=True,
-#             override_height=75,
-#             debounce_time=0)
-
-
-#         text_to_be_copied = df.loc[df_new['rejection reason']=='Free to access link', 'rejection template'].values[0]
-#         copy_dict = {"content": text_to_be_copied}
-
-#         copy_button = Button(label="Free to access link")
-#         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-#             navigator.clipboard.writeText(content);
-#             """))
-
-#         no_event = streamlit_bokeh_events(
-#             copy_button,
-#             events="GET_TEXT3",
-#             key="get_text3",
-#             refresh_on_update=True,
-#             override_height=75,
-#             debounce_time=0)
-
-#         text_to_be_copied = df.loc[df_new['rejection reason']=='OAL - arXiv', 'rejection template'].values[0]
-#         copy_dict = {"content": text_to_be_copied}
-
-#         copy_button = Button(label="OAL - arXiv")
-#         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-#             navigator.clipboard.writeText(content);
-#             """))
-
-#         no_event = streamlit_bokeh_events(
-#             copy_button,
-#             events="GET_TEXT4",
-#             key="get_text4",
-#             refresh_on_update=True,
-#             override_height=75,
-#             debounce_time=0)
-
-#         text_to_be_copied = df.loc[df_new['rejection reason']=='Duplicate record', 'rejection template'].values[0]
-#         copy_dict = {"content": text_to_be_copied}
-
-#         copy_button = Button(label="Duplicate record")
-#         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-#             navigator.clipboard.writeText(content);
-#             """))
-
-#         no_event = streamlit_bokeh_events(
-#             copy_button,
-#             events="GET_TEXT5",
-#             key="get_text5",
-#             refresh_on_update=True,
-#             override_height=75,
-#             debounce_time=0)
