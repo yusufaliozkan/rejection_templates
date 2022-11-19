@@ -100,6 +100,9 @@ with tab1:
         display = st.checkbox('Display the rejection statement')
         if display:
             components.html(text_to_be_copied, height=800, scrolling=True)
+        st.subheader('List of rejection reasons')
+        df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
+        st.dataframe(df_reasons_only)
         # with st.expander('View template (' + frequently+')', expanded=False):
         #     components.html(text_to_be_copied, height=800, scrolling=True)
         
