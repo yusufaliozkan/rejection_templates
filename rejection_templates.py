@@ -84,7 +84,7 @@ with tab1:
         text_to_be_copied = df.loc[df_new['rejection reason']==frequently, 'rejection template'].values[0]
 
         with st.expander('View template (' + frequently+')', expanded=False):
-            components.html(df_reason, height=800, scrolling=True)
+            components.html(text_to_be_copied, height=800, scrolling=True)
 
         # with st.expander('Wrong version - post-April 2016'):
         #     st.code(df.loc[df_new['rejection reason']=='Wrong version - post-April 2016', 'rejection template'].values[0])
