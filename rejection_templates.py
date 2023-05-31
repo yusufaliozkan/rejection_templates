@@ -122,7 +122,7 @@ with tab1:
 with tab2:
     name = st.text_input('Author name', key='name')
     title = st.text_input('Thesis title', key='title')
-    article_title = st.text_input('Article title', key='title')
+    article_title = st.text_input('Article title', key='article_title')
     article_link = st.text_input('Article link', key='link')
     def add_names():
         names = []
