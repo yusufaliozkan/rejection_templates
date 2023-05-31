@@ -124,24 +124,24 @@ with tab2:
     title = st.text_input('Thesis title', key='title')
     article_title = st.text_input('Article title', key='article_title')
     article_link = st.text_input('Article link', key='link')
-    def add_names():
-        names = []
-        name = st.text_input("Enter a name:", key='namers')
-        names.append(name)
+    # def add_names():
+    #     names = []
+    #     name = st.text_input("Enter a name:", key='namers')
+    #     names.append(name)
 
-        i = 2
-        while st.button("Add another name"):
-            name = st.text_input("Enter a name:", key=f'namer{i}')
-            names.append(name)
-            i += 1
+    #     i = 2
+    #     while st.button("Add another name"):
+    #         name = st.text_input("Enter a name:", key=f'namer{i}')
+    #         names.append(name)
+    #         i += 1
 
-        return names
+    #     return names
 
-    names = add_names()
+    # names = add_names()
 
-    st.write("Names:")
-    for name in names:
-        st.write(name)
+    # st.write("Names:")
+    # for name in names:
+    #     st.write(name)
 
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
