@@ -120,10 +120,10 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
-    name = st.text_input('Author name')
-    title = st.text_input('Thesis title')
-    article_title = st.text_input('Article title')
-    article_link = st.text_input('Article link')
+    name = st.text_input('Author name', key='name')
+    title = st.text_input('Thesis title', key='title')
+    article_title = st.text_input('Article title', key='title')
+    article_link = st.text_input('Article link', key='link')
     def add_names():
         names = []
         name = st.text_input("Enter a name:")
