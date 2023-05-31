@@ -126,14 +126,17 @@ with tab2:
     article_link = st.text_input('Article link', key='link')
     def add_names():
         names = []
-        name = st.text_input("Enter a name:", key='name2')
+        name = st.text_input("Enter a name:", key='name')
         names.append(name)
 
+        i = 2
         while st.button("Add another name"):
-            name = st.text_input("Enter a name:", key='name3')
+            name = st.text_input("Enter a name:", key=f'name{i}')
             names.append(name)
+            i += 1
 
         return names
+
     names = add_names()
 
     st.write("Names:")
