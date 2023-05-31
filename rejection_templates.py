@@ -126,18 +126,26 @@ with tab2:
     # article_link = st.text_input('Article link', key='link')
     def add_articles():
         articles = []
-        title = st.text_input("Enter article title:")
-        link = st.text_input("Enter article link:")
-        articles.append({"title": title, "link": link})
+        i = 0
 
-        while st.button("Add another article"):
-            title = st.text_input("Enter article title:")
-            link = st.text_input("Enter article link:")
+        while True:
+            title = st.text_input(f"Enter article title {i + 1}: ", key=f"title-{i}")
+            link = st.text_input(f"Enter article link {i + 1}: ", key=f"link-{i}")
+
             articles.append({"title": title, "link": link})
+
+            if not st.button("Add another article"):
+                break
+
+            i += 1
 
         return articles
 
     articles = add_articles()
+
+st.write("Articles:")
+for article in articles:
+    st.markdown(f"[{article['title']}]({article['link']})")
 
     st.write("Articles:")
     for article in articles:
