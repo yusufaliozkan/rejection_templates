@@ -120,28 +120,10 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
-    # name = st.text_input('Author name', key='name')
-    # title = st.text_input('Thesis title', key='title')
-    # article_title = st.text_input('Article title', key='article_title')
-    # article_link = st.text_input('Article link', key='link')
-    def add_articles():
-        articles = []
-        i = 0
-
-        while True:
-            title = st.text_input(f"Enter article title {i + 1}: ", key=f"title-{i}")
-            link = st.text_input(f"Enter article link {i + 1}: ", key=f"link-{i}")
-
-            articles.append({"title": title, "link": link})
-
-            if not st.button("Add another article"):
-                break
-
-            i += 1
-
-        return articles
-
-    articles = add_articles()
+    name = st.text_input('Author name', key='name')
+    title = st.text_input('Thesis title', key='title')
+    article_title = st.text_input('Article title', key='article_title')
+    article_link = st.text_input('Article link', key='link')
 
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
