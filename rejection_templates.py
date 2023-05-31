@@ -21,7 +21,7 @@ df = pd.read_csv('templates.csv', names=column_names)
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
-tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
+tab1, tab2, tab3 = st.tabs(["Rejection templates", "Thesis rejection","HTML editor"])
 
 with tab1:
     st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
@@ -120,4 +120,7 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
+    
+
+with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
