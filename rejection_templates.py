@@ -143,13 +143,5 @@ with tab2:
 
     articles = add_articles()
 
-st.write("Articles:")
-for article in articles:
-    st.markdown(f"[{article['title']}]({article['link']})")
-
-    st.write("Articles:")
-    for article in articles:
-        st.markdown(f"[{article['title']}]({article['link']})")
-
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
