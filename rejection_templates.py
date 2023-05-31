@@ -126,7 +126,7 @@ with tab2:
     article_link = st.text_input('Article link', key='link')
     def add_names():
         names = []
-        name = st.text_input("Enter a name:", key='namer')
+        name = st.text_input("Enter a name:", key='namers')
         names.append(name)
 
         i = 2
