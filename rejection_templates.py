@@ -124,6 +124,21 @@ with tab2:
     title = st.text_input('Thesis title')
     article_title = st.text_input('Article title')
     article_link = st.text_input('Article link')
+    def add_names():
+        names = []
+        name = st.text_input("Enter a name:")
+        names.append(name)
+
+        while st.button("Add another name"):
+            name = st.text_input("Enter a name:")
+            names.append(name)
+
+        return names
+    names = add_names()
+
+    st.write("Names:")
+    for name in names:
+        st.write(name)
 
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
