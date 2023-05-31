@@ -120,7 +120,7 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
-    st.input('Author name')
+    st.text_input('Author name')
 
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
