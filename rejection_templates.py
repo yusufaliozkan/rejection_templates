@@ -120,28 +120,28 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
-    name = st.text_input('Author name', key='name')
-    title = st.text_input('Thesis title', key='title')
-    article_title = st.text_input('Article title', key='article_title')
-    article_link = st.text_input('Article link', key='link')
-    # def add_names():
-    #     names = []
-    #     name = st.text_input("Enter a name:", key='namers')
-    #     names.append(name)
+    # name = st.text_input('Author name', key='name')
+    # title = st.text_input('Thesis title', key='title')
+    # article_title = st.text_input('Article title', key='article_title')
+    # article_link = st.text_input('Article link', key='link')
+    def add_articles():
+        articles = []
+        title = st.text_input("Enter article title:")
+        link = st.text_input("Enter article link:")
+        articles.append({"title": title, "link": link})
 
-    #     i = 2
-    #     while st.button("Add another name"):
-    #         name = st.text_input("Enter a name:", key=f'namer{i}')
-    #         names.append(name)
-    #         i += 1
+        while st.button("Add another article"):
+            title = st.text_input("Enter article title:")
+            link = st.text_input("Enter article link:")
+            articles.append({"title": title, "link": link})
 
-    #     return names
+        return articles
 
-    # names = add_names()
+    articles = add_articles()
 
-    # st.write("Names:")
-    # for name in names:
-    #     st.write(name)
+    st.write("Articles:")
+    for article in articles:
+        st.markdown(f"[{article['title']}]({article['link']})")
 
 with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
