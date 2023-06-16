@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 
 
 # Setting the app page layout
-st.set_page_config(layout = "wide", page_title='Spiral rejection templates tool', page_icon='https://pbs.twimg.com/profile_images/1509826209563263008/cNh9JRjd_400x400.jpg')
+st.set_page_config(layout = "wide", page_title='Spiral rejection templates tool', page_icon='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ol2lcon3zrdrcu6v1jo7')
 path='https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Logo_for_Imperial_College_London.svg/2560px-Logo_for_Imperial_College_London.svg.png'
 # st.image('header_full.png')
 st.image(path, width=200)
