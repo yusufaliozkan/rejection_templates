@@ -24,7 +24,7 @@ df_new = df.sort_values(by='rejection reason')
 tab1, tab2, tab3 = st.tabs(["Rejection templates", "Thesis rejection","HTML editor"])
 
 with tab1:
-    st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
+    st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard!')
 
     col1, col2 = st.columns([1,2])
     with col1:
