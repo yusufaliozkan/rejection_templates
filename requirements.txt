@@ -3,4 +3,4 @@ pandas==1.2.0
 pyperclip==1.8.2
 bokeh==2.4.3
 streamlit-bokeh-events==0.1.2
-PyQt6==6.4.0
+PyQt6==6.6.1
