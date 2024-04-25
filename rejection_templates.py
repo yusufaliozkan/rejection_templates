@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 
 # Setting the app page layout
 st.set_page_config(layout = "wide", page_title='Spiral rejection templates tool', page_icon='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ol2lcon3zrdrcu6v1jo7')
-path='https://github.com/yusufaliozkan/rejection_templates/blob/main/IMPERIAL_logo_RGB_Blue_2024.png'
+path='https://github.com/yusufaliozkan/rejection_templates/blob/main/IMPERIAL_logo_RGB_Blue_2024.png?raw=true'
 # st.image('header_full.png')
 st.image(path, width=200)
 st.markdown("# Rejection templates tool")
