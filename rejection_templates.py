@@ -10,7 +10,7 @@ import streamlit.components.v1 as components
 st.set_page_config(layout = "wide", page_title='Spiral rejection templates tool', page_icon='https://github.com/yusufaliozkan/rejection_templates/blob/main/Ilogo.PNG?raw=true')
 path='https://github.com/yusufaliozkan/rejection_templates/blob/main/IMPERIAL_logo_RGB_Blue_2024.png?raw=true'
 # st.image('header_full.png')
-st.image(path, width=200)
+st.image(path, width=400)
 st.markdown("# Rejection templates tool")
 
 # st.sidebar.markdown("# Rejection templates tool") 
