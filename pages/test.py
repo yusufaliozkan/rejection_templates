@@ -61,6 +61,8 @@ with tab1:
             components.html(df_reason, height=800, scrolling=True)
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
+        with st.expander('View template in plain text (' +reason+')'):
+            st.text(df_reason)
 
     col1, col2 = st.columns([1,2])
     with col1:
