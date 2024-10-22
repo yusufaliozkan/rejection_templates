@@ -21,12 +21,13 @@ df = pd.read_csv('templates.csv', names=column_names)
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
-df_plain = pd.read_csv('rejection_templates_plain_text.csv', names=column_names)
+column_names_plain = ['rejection reason', 'rejection template plain text']
+df_plain = pd.read_csv('rejection_templates_plain_text.csv', names=column_names_plain)
 df_plain['rejection reason'] = df_plain['rejection reason'].astype(str)
 df_plain_new = df_plain.sort_values(by='rejection reason')
 df_plain_new
 
-tab1, tab2, tab3 = st.tabs(["Rejection templates", "Thesis rejection","HTML editor"])
+tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
 
 with tab1:
     st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
@@ -125,10 +126,4 @@ with tab1:
     #     st.dataframe(df_reasons_only)
 
 with tab2:
-    name = st.text_input('Author name', key='name')
-    title = st.text_input('Thesis title', key='title')
-    article_title = st.text_input('Article title', key='article_title')
-    article_link = st.text_input('Article link', key='link')
-
-with tab3:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
