@@ -27,7 +27,6 @@ df_plain['rejection reason'] = df_plain['rejection reason'].astype(str)
 df_plain_new = df_plain.sort_values(by='rejection reason')
 
 df_new = pd.merge(df_new, df_plain_new, on='rejection reason', how='left')
-df_new
 
 tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
 
