@@ -57,14 +57,6 @@ with tab1:
             override_height=75,
             debounce_time=0)
 
-        clist = df_new['rejection reason'].unique()
-        reason = st.selectbox("Select a reason:",clist)
-        df_reason = df_new.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
-        df_reason_plain_text = df_new.loc[df_new['rejection reason']==reason, 'rejection template plain text'].values[0]
-        text_to_be_copied = df_reason_plain_text
-        copy_dict = {"content": text_to_be_copied}
-
-
         copy_button = Button(label="Copy plain text template to clipboard")
         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
             navigator.clipboard.writeText(content);
