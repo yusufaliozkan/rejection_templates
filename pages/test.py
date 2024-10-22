@@ -18,6 +18,8 @@ st.markdown("# Rejection templates tool")
 # Exporting dataset
 column_names = ['rejection reason', 'rejection template']
 df = pd.read_csv('templates.csv', names=column_names)
+df_plain = pd.read_csv('rejection_templates_plain_text.csv')
+df_plain
 df['rejection reason'] = df['rejection reason'].astype(str)
 df_new = df.sort_values(by='rejection reason')
 
