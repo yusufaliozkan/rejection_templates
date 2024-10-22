@@ -63,7 +63,7 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
         with st.expander('View template in plain text (' +reason+')'):
-            st.text(df_reason)
+            st.text(df_reason_plain_text)
 
     col1, col2 = st.columns([1,2])
     with col1:
