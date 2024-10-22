@@ -38,8 +38,8 @@ with tab1:
     with col1:
         clist = df_new['rejection reason'].unique()
         reason = st.selectbox("Select a reason:",clist)
-        df_reason = df.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
-        df_reason_plain_text = df.loc[df_new['rejection reason']==reason, 'rejection template plain text'].values[0]
+        df_reason = df_new.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
+        df_reason_plain_text = df_new.loc[df_new['rejection reason']==reason, 'rejection template plain text'].values[0]
         text_to_be_copied = df_reason
         copy_dict = {"content": text_to_be_copied}
 
