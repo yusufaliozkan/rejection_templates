@@ -43,10 +43,10 @@ with tab1:
 
         # Setting up the copy button logic
         if not toggle:
-            col1, col2 = st.columns(2)
-            with col1:
+            col12, col22 = st.columns(2)
+            with col12:
                 st.write('Copy HTML format to clipboard:')
-            with col2:
+            with col22:
                 st_copy_to_clipboard(df_reason)
                 # button_label = "Copy HTML template to clipboard"
                 # text_to_be_copied = df_reason  # HTML template
