@@ -77,7 +77,7 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
         with st.expander('View template in plain text (' +reason+')'):
-            st.write(df_reason_plain_text)
+            st.code(df_reason_plain_text)
 
     st.divider()
     col1, col2 = st.columns([1,2])
