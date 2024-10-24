@@ -35,7 +35,7 @@ with tab1:
 
     toggle = st.toggle('Plain text')
 
-    col1, col2 = st.columns([1, 2])
+    col1, col2 = st.columns([1, 3])
     with col1:
         # Get the correct template based on the reason selected
         df_reason = df_new.loc[df_new['rejection reason'] == reason, 'rejection template'].values[0]
