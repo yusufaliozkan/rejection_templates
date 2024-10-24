@@ -77,6 +77,7 @@ with tab1:
         with st.expander('View template in plain text (' +reason+')'):
             st.write(df_reason_plain_text)
 
+    st.divider()
     col1, col2 = st.columns([1,2])
     with col1:
         public_gsheets_url = 'https://docs.google.com/spreadsheets/d/1Nx8rt1LXVnqjb4eLyo6wuw3YkrI8Bm9qqdpRoojcDVQ/edit#gid=0'
