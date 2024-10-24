@@ -66,7 +66,7 @@ with tab1:
             debounce_time=0
         )
 
-        st_copy_to_clipboard(df_reason_plain_text)
+        st_copy_to_clipboard(df_reason)
 
     with col2:
         if not toggle:
