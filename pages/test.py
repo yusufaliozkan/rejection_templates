@@ -38,7 +38,7 @@ with tab1:
 
     toggle = st.toggle('Plain text')
 
-    if toggle:
+    if not toggle:
         col1, col2 = st.columns([1,2])
         with col1:
             df_reason = df_new.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
