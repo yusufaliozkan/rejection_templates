@@ -157,3 +157,4 @@ with tab1:
 with tab2:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
 
+st_copy_to_clipboard("Copy this to clipboard")
