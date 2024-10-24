@@ -31,7 +31,9 @@ df_new = pd.merge(df_new, df_plain_new, on='rejection reason', how='left')
 tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
 
 with tab1:
-    st.write('Select a rejection reason from the dropdown menu and copy the HTML template to clipboard.')
+    st.write('Select a rejection reason from the dropdown menu and copy the template to clipboard.')
+
+    st.toggle('Plain text')
 
     col1, col2 = st.columns([1,2])
     with col1:
