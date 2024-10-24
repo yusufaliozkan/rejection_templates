@@ -51,10 +51,13 @@ with tab1:
                 # button_label = "Copy HTML template to clipboard"
                 # text_to_be_copied = df_reason  # HTML template
         else:
-            st.write('Copy plain text to clipboard:')
-            st_copy_to_clipboard(df_reason_plain_text)
-            # button_label = "Copy plain text template to clipboard"
-            # text_to_be_copied = df_reason_plain_text  # Plain text template
+            col12, col22 = st.columns([2,1])
+            with col12:
+                st.write('Copy plain text to clipboard:')
+            with col22:
+                st_copy_to_clipboard(df_reason_plain_text)
+                # button_label = "Copy plain text template to clipboard"
+                # text_to_be_copied = df_reason_plain_text  # Plain text template
 
         # copy_dict = {"content": text_to_be_copied}
 
