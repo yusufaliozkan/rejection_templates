@@ -4,6 +4,7 @@ from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
 import streamlit.components.v1 as components
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Setting the app page layout
 st.set_page_config(layout = "wide", page_title='Spiral rejection templates tool', page_icon='https://github.com/yusufaliozkan/rejection_templates/blob/main/Ilogo.PNG?raw=true')
@@ -155,3 +156,4 @@ with tab1:
 
 with tab2:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
+
