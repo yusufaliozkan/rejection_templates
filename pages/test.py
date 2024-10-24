@@ -106,6 +106,8 @@ with tab1:
             df_reasons_only = df_new['rejection reason'].reset_index(drop = True)
             st.dataframe(df_reasons_only)
 
+    st.divider()
+
     st.subheader('Frequently used templates')
     col1, col2 = st.columns([1,2])
 
