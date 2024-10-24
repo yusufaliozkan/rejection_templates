@@ -73,7 +73,7 @@ with tab1:
     with col2:
         if not toggle:
             with st.expander('View template (' + reason + ')', expanded=False):
-                components.html(df_reason, height=800, scrolling=True)
+                components.html(df_reason, height=400, scrolling=True)
             with st.expander('View template in HTML format (' + reason + ')'):
                 st.code(df_reason)
         else:
