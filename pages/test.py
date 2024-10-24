@@ -43,7 +43,7 @@ with tab1:
 
         # Setting up the copy button logic
         if not toggle:
-            col12, col22 = st.columns(2)
+            col12, col22 = st.columns([2,1])
             with col12:
                 st.write('Copy HTML format to clipboard:')
             with col22:
