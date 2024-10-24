@@ -33,12 +33,14 @@ tab1, tab2 = st.tabs(["Rejection templates", "HTML editor"])
 with tab1:
     st.write('Select a rejection reason from the dropdown menu and copy the template to clipboard.')
 
+    clist = df_new['rejection reason'].unique()
+    reason = st.selectbox("Select a reason:",clist)
+
     st.toggle('Plain text')
 
     col1, col2 = st.columns([1,2])
     with col1:
-        clist = df_new['rejection reason'].unique()
-        reason = st.selectbox("Select a reason:",clist)
+
         df_reason = df_new.loc[df_new['rejection reason']==reason, 'rejection template'].values[0]
         df_reason_plain_text = df_new.loc[df_new['rejection reason']==reason, 'rejection template plain text'].values[0]
         text_to_be_copied = df_reason
@@ -77,7 +79,7 @@ with tab1:
         with st.expander('View template in HTML format (' + reason+')'):
             st.code(df_reason)
         with st.expander('View template in plain text (' +reason+')'):
-            st.code(df_reason_plain_text)
+            st.write(df_reason_plain_text)
 
     st.divider()
     col1, col2 = st.columns([1,2])
