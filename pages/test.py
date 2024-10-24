@@ -66,6 +66,8 @@ with tab1:
             debounce_time=0
         )
 
+        st_copy_to_clipboard(df_reason_plain_text)
+
     with col2:
         if not toggle:
             with st.expander('View template (' + reason + ')', expanded=False):
@@ -156,5 +158,3 @@ with tab1:
 
 with tab2:
     components.iframe("https://jsonformatter.org/html-viewer", height=800)
-
-st_copy_to_clipboard("Copy this to clipboard")
