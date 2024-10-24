@@ -51,22 +51,22 @@ with tab1:
             # button_label = "Copy plain text template to clipboard"
             # text_to_be_copied = df_reason_plain_text  # Plain text template
 
-        copy_dict = {"content": text_to_be_copied}
+        # copy_dict = {"content": text_to_be_copied}
 
-        # Create the copy button once
-        copy_button = Button(label=button_label)
-        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-            navigator.clipboard.writeText(content);
-        """))
+        # # Create the copy button once
+        # copy_button = Button(label=button_label)
+        # copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+        #     navigator.clipboard.writeText(content);
+        # """))
 
-        no_event = streamlit_bokeh_events(
-            copy_button,
-            events="GET_TEXT",
-            key="get_text",
-            refresh_on_update=True,
-            override_height=75,
-            debounce_time=0
-        )
+        # no_event = streamlit_bokeh_events(
+        #     copy_button,
+        #     events="GET_TEXT",
+        #     key="get_text",
+        #     refresh_on_update=True,
+        #     override_height=75,
+        #     debounce_time=0
+        # )
 
     with col2:
         if not toggle:
