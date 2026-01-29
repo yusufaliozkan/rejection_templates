@@ -1,5 +1,5 @@
 streamlit==1.53.0
-pandas==2.2.0
+pandas==2.2.2
 pyperclip==1.8.2
 bokeh==3.8.2
 streamlit-bokeh-events==0.1.2
