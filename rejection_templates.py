@@ -1,6 +1,6 @@
 import streamlit as st
 from bokeh.models.widgets import Button
-from bokeh.models import CustomJS
+from bokeh.models import Button, CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 import pandas as pd
 import streamlit.components.v1 as components
