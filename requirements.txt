@@ -1,6 +1,6 @@
 streamlit==1.53.0
 pandas==2.2.2
-pyperclip==1.8.2
+pyperclip==1.11.0
 bokeh==3.8.2
 streamlit-bokeh-events==0.1.2
 st-copy-to-clipboard==0.1.6
