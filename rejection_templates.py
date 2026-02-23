@@ -123,7 +123,7 @@ with tab1:
 
     with col1:
         df_frequent = df_new.loc[df_new['rejection reason'].isin(
-            ['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv', 'Duplicate record', 'Blank template'])]
+            ['Wrong version - post-April 2016', 'Free to access link', 'OAL - arXiv (pre Jan 2025)', 'OAL - arXiv (post Jan 2025)', 'Duplicate record', 'Blank template'])]
         frequently = st.radio('Choose a rejection reason to display the statement', df_frequent['rejection reason'])
         text_to_be_copied = df_new.loc[df_new['rejection reason'] == frequently, 'rejection template'].values[0]
         text_to_be_copied_plain = df_new.loc[df_new['rejection reason'] == frequently, 'rejection template plain text'].values[0]
