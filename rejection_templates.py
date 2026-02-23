@@ -33,7 +33,7 @@ with tab1:
     clist = df_new['rejection reason'].unique()
     reason = st.selectbox("Select a reason:", clist)
 
-    toggle = st.toggle('Plain text')
+    toggle = st.toggle('HTML text')
 
     col1, col2 = st.columns([1, 3])
     with col1:
@@ -42,7 +42,7 @@ with tab1:
         df_reason_plain_text = df_new.loc[df_new['rejection reason'] == reason, 'rejection template plain text'].values[0]
 
         # Setting up the copy button logic
-        if not toggle:
+        if toggle:
             col12, col22 = st.columns([2,1])
             with col12:
                 st.write('Copy HTML format to clipboard:')
