@@ -42,7 +42,7 @@ with tab1:
         df_reason_plain_text = df_new.loc[df_new['rejection reason'] == reason, 'rejection template plain text'].values[0]
 
         # Setting up the copy button logic
-        if toggle:
+        if not toggle:
             col12, col22 = st.columns([2,1])
             with col12:
                 st.write('Copy HTML format to clipboard:')
