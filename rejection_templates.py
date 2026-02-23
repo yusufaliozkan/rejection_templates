@@ -32,6 +32,7 @@ with tab1:
 
     clist = df_new['rejection reason'].unique()
     reason = st.selectbox("Select a reason:", clist)
+    df_new
 
     toggle = st.toggle('HTML text')
 
