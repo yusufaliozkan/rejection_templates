@@ -42,7 +42,7 @@ with tab1:
         df_reason_plain_text = df_new.loc[df_new['rejection reason'] == reason, 'rejection template plain text'].values[0]
 
         # Setting up the copy button logic
-        if not toggle:
+        if toggle:
             col12, col22 = st.columns([2,1])
             with col12:
                 st.write('Copy HTML format to clipboard:')
@@ -77,7 +77,7 @@ with tab1:
         # )
 
     with col2:
-        if not toggle:
+        if toggle:
             with st.expander('View template (' + reason + ')', expanded=True):
                 components.html(df_reason, height=400, scrolling=True)
             with st.expander('View template in HTML format (' + reason + ')'):
